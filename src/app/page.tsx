@@ -1,23 +1,25 @@
 "use client";
 import { Button, Card, Row, Slider } from "antd";
 import React from "react";
-import { CopyOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import {
+  PlusCircleOutlined,
+  EditOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
 import { SiNextdotjs } from "react-icons/si";
-import { Checkbox } from "antd";
 
 export default function Home() {
-  function setPwdLength(value: number): void {
-    throw new Error("Function not implemented.");
-  }
+  const [todo, setTodo] = React.useState<string>("Add a new task...");
 
   return (
     <div style={pageStyle}>
       <div style={cardContainerStyle}>
         <div style={cardTitleStyle}>
-          <h2 style={titleStyle}>Password Generator</h2>
+          <h2 style={titleStyle}>To-Do list</h2>
+
           <div style={iconNextStyle}>
             <span style={spanIconNext}>
-              <SiNextdotjs size={32} color="#fff" />
+              <SiNextdotjs size={32} color="#ffffffff" />
             </span>
             <h2 style={titleStyle}>Next.js</h2>
           </div>
@@ -25,10 +27,26 @@ export default function Home() {
 
         <Card style={pwdBoxStyle}>
           <div style={pwdStyle}>
-            <p>text</p>
-            <PlusCircleOutlined style={{fontSize: '42px'}}/>
+            <p>{todo}</p>
+            <PlusCircleOutlined
+              style={{
+                fontSize: "38px",
+                width: "20",
+                color: "blue",
+                cursor: "pointer",
+              }}
+            />
           </div>
-        </Card>        
+        </Card>
+
+        <Card style={{display: "flex", flexDirection: "row", gap: 10, width: "100%"}}>
+          <div>
+          <div style={{ color: "black" }}>Review project proposal</div>
+          <EditOutlined />
+          <DeleteOutlined />
+
+          </div>
+        </Card>
       </div>
     </div>
   );
